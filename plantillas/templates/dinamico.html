@@ -8,6 +8,23 @@
 <body>
     <h1>Hola Mundo, es un gusto saludarte {{name}} el día de hoy</h1>
     <h3>Categories</h3>
-    <p>{{categories}}</p>
+    <ul>
+    {% comment "" %}
+    Este es un comentario multilinea
+    En la parte inferior podemos ver las categorias y las pintamos para que se muestre
+    en negrita
+    {% endcomment %}
+        {% for category in categories %}
+            {%if category == "code"%}
+                <li><b>{{category|upper}}</b></li> 
+            {%else%} 
+                <li>
+                    {{category}}
+                </li>
+            {%endif%}
+        {% endfor %}
+        <h5>Total de categorias: {{categories|length}}
+        </h5>
+    </ul>
 </body>
 </html>
